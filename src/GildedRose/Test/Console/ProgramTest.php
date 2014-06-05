@@ -29,6 +29,19 @@ class ProgramTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function executeMainFunctionAndReturnTrue()
+    {
+        ob_start();
+        Program::main();
+        $output = ob_get_clean();
+
+        $temp = 'OMGHAI!Name-SellIn-Quality+5DexterityVest-9-19AgedBrie-1-1ElixiroftheMongoose-4-6Sulfuras,HandofRagnaros-0-80BackstagepassestoaTAFKAL80ETCconcert-14-21ConjuredManaCake-2-4';
+        $this->assertTrue(str_replace(array(" ","\n"),"",$output) == $temp);
+    }
+
+    /**
+     * @test
+     */
     public function sellDaysPassedQualityDegreeTwice()
     {
         $items = $this->increaseNDaysAndReturnItems(14);
